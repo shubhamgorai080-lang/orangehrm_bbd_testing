@@ -1,6 +1,8 @@
 package stepdefinations;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 import SeleniumUtilities.ReusableFunctions;
 import base.BaseTest;
@@ -32,8 +34,7 @@ public class OrangeHRMAdminSteps extends BaseTest {
     	
         System.out.println("Status: Scenario 11 - Successfully accessed Admin Page.");
     }
-    
-    
+
     
     // 12. Search user by username
     @When("User enters existing Username in search field")
@@ -73,7 +74,7 @@ public class OrangeHRMAdminSteps extends BaseTest {
 
     @When("User enters Employee Name for new user")
     public void user_enters_employee_name_for_new_user() {
-        adminPage.enterName("A"); 
+        adminPage.enterName("mu"); 
     }
 
     @When("User enters unique Username for new user")
@@ -93,7 +94,17 @@ public class OrangeHRMAdminSteps extends BaseTest {
 
     @When("User clicks on Save button")
     public void user_clicks_on_save_button() {
-    	rf.TakeScreenshot("Create_User_Form_Filled_Data");
+//    	rf.TakeScreenshot("Create_User_Form_Filled_Data");
+//        adminPage.clicksave();
+    	
+    	try {
+            // Safe check: if session active then take screenshot
+            if (driver != null) {
+                rf.TakeScreenshot("Create_User_Form_Filled_Data");
+            }
+        } catch (Exception e) {
+            System.out.println("Warning: Screenshot skipped in Save step due to invalid/expired session ID.");
+        }
         adminPage.clicksave();
     }
     
@@ -132,13 +143,13 @@ public class OrangeHRMAdminSteps extends BaseTest {
         
         // For focus out click Tab so that input can validate
         try {
-            org.openqa.selenium.WebElement usernameInput = driver.findElement(By.xpath("//label[text()='Username']/ancestor::div[@class='oxd-input-group']//input"));
-            usernameInput.sendKeys(org.openqa.selenium.Keys.TAB);
+          WebElement usernameInput = driver.findElement(By.xpath("//label[text()='Username']/ancestor::div[@class='oxd-input-group']//input"));
+            usernameInput.sendKeys(Keys.TAB);
             System.out.println("TAB pressed for focus out validation.");
         } catch(Exception e) {
             // fallback if element not catches
         }
-        Thread.sleep(2000);
+        Thread.sleep(500);
     }
     
 
