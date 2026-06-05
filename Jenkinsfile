@@ -14,7 +14,7 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 // Pulls cleanly from your repository path
-                git branch: 'main', url: 'https://github.com/PriyabrataRoy/OrangeHRMAutomation.git'
+                git branch: 'main', url: 'https://github.com/shubhamgorai080-lang/orangehrm_bbd_testing.git'
             }
         }
  
