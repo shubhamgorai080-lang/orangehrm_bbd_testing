@@ -28,7 +28,7 @@ public class OrangeHRM_MyInfoSteps extends BaseTest{
         Thread.sleep(3000); 
         
         String currentUrl = driver.getCurrentUrl();
-        System.out.println("Captured Current URL: " + currentUrl);
+        //System.out.println("Captured Current URL: " + currentUrl);
         
       
         rf.TakeScreenshot("MyInfo_Personal_Details_Landing_Page");

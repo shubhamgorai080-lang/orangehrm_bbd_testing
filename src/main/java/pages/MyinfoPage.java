@@ -123,7 +123,7 @@ public class MyinfoPage {
 	    
 	    //select the country
 	    public void selectCountryFromDropdown(String countryName) throws InterruptedException {
-	    	System.out.println("🔽 Opening Country Dropdown...");
+	    	System.out.println("Opening Country Dropdown...");
 	        rf.clickElement(countryDropdown);
 	        Thread.sleep(2500); 
 	        List<WebElement> liveOptions = driver.findElements(By.xpath("//div[@role='listbox']//div[@role='option']"));
@@ -135,7 +135,7 @@ public class MyinfoPage {
 	                text = option.getAttribute("textContent").trim();
 	            }
 	            
-	            System.out.println("🔍 Live Check Option: [" + text + "]");
+	            //System.out.println("Live Check Option: [" + text + "]");
 
 	            if (text.equalsIgnoreCase(countryName)) {
 	                System.out.println("Match Found! Clicking via Selenium click operation: " + text);
@@ -159,7 +159,7 @@ public class MyinfoPage {
 	        }
 
 	        if (!found) {
-	            System.out.println("❌ Error: '" + countryName + "' dropdown list me select nahi ho paaya!");
+	            System.out.println("❌ Error: '" + countryName + "' Not selected from dropdown list!");
 	        }
 	        Thread.sleep(2000); // Value frame lock sync buffer
 	    }

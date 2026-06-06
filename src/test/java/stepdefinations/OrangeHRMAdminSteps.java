@@ -74,7 +74,7 @@ public class OrangeHRMAdminSteps extends BaseTest {
 
     @When("User enters Employee Name for new user")
     public void user_enters_employee_name_for_new_user() {
-        adminPage.enterName("mu"); 
+        adminPage.enterName("A"); 
     }
 
     @When("User enters unique Username for new user")
